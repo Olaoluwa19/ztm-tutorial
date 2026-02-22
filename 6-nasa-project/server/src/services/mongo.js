@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
 
-DATABASE_URI =
-  "mongodb+srv://oladapooluwadurotimi:yhCIFQCCPwL6ZeWk@nasacluster.bdls3.mongodb.net/?retryWrites=true&w=majority&appName=NASACluster";
-
 mongoose.connection.once("open", () => {
   console.log("MongoDB connection ready!");
 });
@@ -12,7 +9,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 async function mongoConnect() {
-  await mongoose.connect(DATABASE_URI);
+  await mongoose.connect(process.env.DATABASE_URI);
 }
 
 module.exports = {
